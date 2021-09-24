@@ -283,32 +283,174 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is `LingoGO!` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Delete a person**
+**Use case: Add a flashcard**
+
+**Guarantees**
+* A flashcard is added only if all of its information is provided.
 
 **MSS**
-
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+1. User requests to add a new flashcard.
+2. User provides information regarding the flashcard they want to add.
+3. LingoGO! creates and adds a new flashcard.
 
     Use case ends.
 
 **Extensions**
+* 2a. Flashcard that the user wants to add is a duplicate of a flashcard already present in LingoGO!
+  * 2a1. LingoGO! shows an error message.
 
+    Use case resumes at step 1.
+
+* 2b. Information provided by the user in incomplete.
+  * 2b1. LingoGO! shows an error message.
+
+    Use case resumes at step 1.
+
+**Use case: Delete a flashcard**
+
+**MSS**
+1. User requests to list out all flashcards.
+2. LingoGO! shows a list of flashcards.
+3. User requests to delete a specific flashcard from the list.
+4. LingoGO! deletes the flashcard.
+
+    Use case ends.
+
+**Extensions**
 * 2a. The list is empty.
 
-  Use case ends.
+    Use case ends.
 
 * 3a. The given index is invalid.
+  * 3a1. LingoGO! shows an error message.
 
-    * 3a1. AddressBook shows an error message.
+    Use case resumes at step 2.
 
-      Use case resumes at step 2.
+**Use case: Edit a flashcard**
 
-*{More to be added}*
+**Guarantees**
+* A flashcard will be edited only if the edited information provided is valid.
+
+**MSS**
+1.  User requests to list out all flashcards.
+2.  LingoGO! shows a list of flashcards.
+3.  User requests to edit a specific flashcard from the list.
+4.  User provides the updated information for the flashcard.
+5.  LingoGO! updates the flashcard with the information.
+
+    Use case ends.
+
+**Extensions**
+* 2a. The list is empty.
+
+    Use case ends.
+
+* 3a. The given index is invalid.
+  * 3a1. LingoGO! shows an error message.
+
+    Use case resumes at step 2.
+
+* 4a. The user does not provide any information.
+  * 4a1. LingoGO! shows an error message.
+
+    Use case resumes at step 2.
+
+* 4b. The user provides information that causes the flashcard to become a duplicate of another flashcard in LingoGO!
+  * 4b1. LingoGO! shows an error message.
+
+    Use case resumes at step 2.
+
+**Use case: Flip a flashcard**
+
+**MSS**
+1. User requests to toggle whether a flashcard’s answer can be seen.
+2. LingoGO! toggles the visibility of the flashcard’s answer.
+
+    Use case ends.
+
+**Extensions**
+* 1a. The given index is invalid.
+  * 1a1. LingoGO! shows an error message.
+
+    Use case resumes at step 1.
+
+**Use case: Test a user**
+
+**Preconditions: Flashcard tested is not showing its answer.**
+
+**MSS**
+1. User provides an answer to a flashcard.
+2. LingoGO! shows the user whether their answer is correct or not.
+
+    Use case ends.
+
+**Extensions**
+* 1a. The given index is invalid.
+  * 1a1. LingoGO! shows an error message.
+
+    Use case resumes at step 1.
+
+* 1b. The user does not provide an answer.
+  * 1b1. LingoGO! shows an error message.
+
+    Use case resumes at step 1.
+
+**Use case: Import flashcards**
+
+**Guarantees**
+* Flashcards will only be imported if the information provided is complete.
+
+**MSS**
+1. User creates a file containing information about flashcard questions and their corresponding answers.
+2. User requests to import the information in the file into LingoGO!
+3. LingoGO! creates and adds new flashcards to the current list of flashcards according to the information provided
+in the file.
+
+    Use case ends.
+
+**Extensions**
+* 2a. Information provided in the file is incomplete.
+  * 2a1. LingoGO! shows an error message.
+  * 2a2. User checks and edits the file to fill in any missing information.
+
+    Steps 2a1-2a2 are repeated until the data in the file is complete.
+
+    Use case resumes from step 3.
+
+* 2b. One or more flashcards in the file are duplicates of flashcards currently in LingoGO!
+  * 2b1. LingoGO! shows a warning message.
+
+    Use case resumes from step 3, with LingoGO! skipping the creation and addition of the duplicate flashcards.
+
+**Use case: Export flashcards**
+
+**MSS**
+1. User requests to export all flashcards.
+2. LingoGO! creates a file containing all information on each flashcard.
+
+    Use case ends.
+
+**Extensions**
+* 1a. There are no flashcards present.
+  * 1a1. LingoGO! shows a warning message.
+
+      Use case ends.
+
+* 1b. The file name and file path is not specified.
+  * 1b1. LingoGO! creates a file with a default name in a default directory that will contain all information on each
+  flashcard.
+
+    Use case ends.
+
+**Use case: Request for help**
+
+**MSS**
+1. User requests for help.
+2. LingoGO! shows user a help message.
+
+    Use case ends.
 
 ### Non-Functional Requirements
 
