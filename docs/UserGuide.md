@@ -190,3 +190,15 @@ Action | Format, Examples
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
 **Help** | `help`
+
+## Appendix: Requirements
+
+### Product Scope
+
+#### Target user profile:
+* Uni students who are learning a new language
+
+#### Value proposition
+* Fast way to generate flashcards to learn new languages
+* Help students memorise words when learning a new language
+* Gamified features such as recording of scores and tracking of improvements to make learning engaging and encourage continued usage
