@@ -187,6 +187,8 @@ Action | Format, Examples
 **List** | `list`
 **Help** | `help`
 
+--------------------------------------------------------------------------------------------------------------------
+
 ## Appendix: Requirements
 
 ### Product Scope
