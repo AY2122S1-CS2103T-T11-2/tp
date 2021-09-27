@@ -200,3 +200,43 @@ Action | Format, Examples
 * Fast way to generate flashcards to learn new languages
 * Help students memorise words when learning a new language
 * Gamified features such as recording of scores and tracking of improvements to make learning engaging and encourage continued usage
+
+#### User stories
+Categories: Usage pattern, user behaviours, general user, multiple language user, user learning style, user learning 'rate', level of experience, user collaboration
+
+Category | As a/an... | I want to... | So that I...
+-------- | ---------- | ------------ | ----------------
+Usage patterns | active user with hundred of cards already made | be automatically given a list of cards to test my memory | can efficiently expand my vocabulary
+Usage patterns | frequent user | be able to jumble up my flashcards | am really testing my vocabulary instead of just memorising without really knowing the vocabulary
+Usage patterns | forgetful user (who forgets about LingoGO!) | be reminded about using flashcards | can be actively learning new vocabularies instead of just cramming them at the last minute
+Usage patterns | frequent user | be able to load up cards done x days ago | can test my memory retention of the words I learned that day
+User behaviours | lazy user | automatically generate cards by typing in the vocabulary | don't have to spend time manually creating cards
+User behaviours | user who seeks improvement | see the progress made in terms of scores | can visualize my improvement
+User behaviours | organised user (who prepares flashcards based on languages) | I want to be able to combine different decks of flashcards | can prepare for my major exams (eg. mid-terms, finals)
+User behaviours | mobile user | be able to access my cards wherever I am, on the go | 
+User behaviours | user who learns better when things are in hardcopy | have a convenient way to print out the flashcards | do not have to manually format the card design
+General user | user | use the app in another language | 
+General user | user | see the summary statistics over a period of time | can track my progress
+General user | user | be able to tag my flashcards under the categories I specify (e.g. easy, medium, for fun, nouns, etc.) | organise my flashcards easily
+General user | user | be able to add new flash cards |  
+General user | user | be able to list my flashcards | 
+General user | user | be able to test myself and view my performance using flashcards | 
+General user | user | be able to delete my flashcards | 
+General user | user | be able to update my flashcards | 
+Multiple language user | user who is learning multiple languages | be able to load different question sets and store my questions in different files | 
+Multiple language user | user who is learning multiple languages | be able to combine flashcards of the same question in different languages | can test myself in all the languages that I have learnt in one go
+User learning style | auditory user | hear the vocabulary that I stored in the flashcard | can better memorize the words by sound
+User learning style | visual learner | use pictures instead of words as the question part of my flashcard | can remember the vocabulary easier
+User learning style | visual learner | color code my flashcards | can better memorize the words by category
+User learning 'rate' | slow/fast learner | adjust the frequency at which the cards will be tested | can better suit my pace of learning
+User learning 'rate' | slow learner | have cards with words I don't remember to be shown more often to reinforce my learning | 
+Level of experience | long-time user | be able to delete flashcards that have not been used for over a year | only have the flashcards that are relevant to me
+Level of experience | new user | be guided through the set-up process of a flashcard | can use LingoGo! Properly
+Level of experience | new user | have intuitive UI and commands | can get started easily
+Level of experience | new user | have a basic set of questions available from the get go | can reduce the setup time or reduce the need for setup
+Level of experience | long-time user | be able to archive my flashcards that I may not have used for a long time | can retrieve them in future should I want to use them
+Level of experience | long-time user | be able to quickly search through my large library of cards easily and quickly | 
+Level of experience | expert user | be able to set up questions in batches | can prepare flashcards faster
+Level of experience | experienced user | be able to delete multiple flashcards that are no longer relevant to me (multi-delete function) | 
+User collaboration | helpful user | be able to export and share my flashcards with my friends | can help them save time in generating their own set of flashcards (and they can help me too!)
+User collaboration | competitive user | be able to compete with my friends based on how fast and how mnay flashcards we can get correct | will be more motivated to learn
