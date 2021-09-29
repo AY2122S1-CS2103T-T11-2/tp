@@ -119,7 +119,7 @@ public class Person {
                 .append(getAddress())
                 .append(" Remark: ")
                 .append(getRemark());
-        
+
         Set<Tag> tags = getTags();
         if (!tags.isEmpty()) {
             builder.append("; Tags: ");
