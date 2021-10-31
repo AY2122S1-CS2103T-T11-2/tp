@@ -1,0 +1,46 @@
+@startuml
+!include style.puml
+
+box Model MODEL_COLOR_T1
+participant ":ModelManager" as ModelManager MODEL_COLOR
+participant ":SlideshowApp" as SlideshowApp MODEL_COLOR
+participant ":Slideshow" as Slideshow MODEL_COLOR
+participant "currentFlashcard:ObjectProperty<Flashcard>" as Flashcard MODEL_COLOR
+participant "isActive:BooleanProperty" as isActive MODEL_COLOR
+participant "isAnswerDisplayed:BooleanProperty" as isAnswerDisplayed MODEL_COLOR
+end box
+
+mainframe update slideshowApp
+
+activate ModelManager
+
+ModelManager -> SlideshowApp : start()
+activate SlideshowApp
+
+SlideshowApp -> Slideshow : start()
+activate Slideshow
+
+SlideshowApp <-- Slideshow : flashcard
+deactivate Slideshow
+
+SlideshowApp -> Flashcard : set(flashcard)
+activate Flashcard
+
+SlideshowApp <-- Flashcard
+deactivate
+
+SlideshowApp -> isActive : set(true)
+activate isActive
+
+SlideshowApp <-- isActive
+deactivate isActive
+
+SlideshowApp -> isAnswerDisplayed : set(false)
+activate isAnswerDisplayed
+
+SlideshowApp <-- isAnswerDisplayed
+deactivate isAnswerDisplayed
+
+ModelManager <-- SlideshowApp
+deactivate SlideshowApp
+@enduml

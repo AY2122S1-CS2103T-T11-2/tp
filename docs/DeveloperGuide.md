@@ -183,7 +183,7 @@ The `Model` component:
 
 * Stores the flashcard app data i.e., all `Flashcard` objects (which are contained in a `UniqueFlashcardList` object).
 * Stores the currently 'selected' `Flashcard` objects (e.g., results of a search query) as a **separate filtered list** which is exposed as an unmodifiable `ObservableList<Flashcard>` that can be 'observed' e.g. the `UI` can be bound to this list so that the `UI` automatically updates when the data in the list changes.
-* Stores the slideshow app data i.e., all `Flashcard` objects in the slideshow (which are contained in a `Slideshow` object).
+* Stores the slideshow app data i.e., all `Flashcard` objects in the slideshow (which are contained in a `Slideshow` object). This is exposed as a `ReadOnlySlideshowApp` object.
 * Stores a `UserPref` object that represents the user’s preferences. This is exposed as a `ReadOnlyUserPref` object.
 * Does not depend on any of the other three components (as the `Model` represents data entities of the domain, it should make sense on its own without depending on other components).
 
@@ -350,6 +350,44 @@ The sequence diagram below illustrates the execution of `ListCommand`.
     * Pros: Easy to implement.
     * Cons: Does not add value to the user's learning experience.
 
+### Slideshow feature
+
+#### Description
+
+The slideshow feature displays the flashcards shown in list mode one at a time in individual "slides".
+In slideshow mode, users can test how well they remember their flashcards by entering their answers for each flashcard
+and getting feedback on whether they are right or wrong. Users may also navigate between "slides".
+
+#### Implementation
+
+The slideshow feature is facilitated by `ModelManager`.
+It extends `Model` and implements `startSlideshow`, `stopSlideshow`, `isSlideshowActive`, `slideshowNextFlashcard`,
+`slideshowPreviousFlashcard`, `answerCurrentSlide`, `displayCurrentAnswer`, `getSlideshowApp`, and `getCurrentSlide`.
+
+The above methods in turn facilitate the following commands:
+* `SlideshowCommand` - When the user enters slideshow mode.
+* `AnswerCommand` - When the user enters an answer for the flashcard shown on the current slide.
+* `NextCommand` - When the user navigates to the next slide.
+* `PreviousCommand` - When the user navigates to the previous slide.
+* `StopCommand` - When the user exits slideshow mode.
+
+The `SlideshowApp` class is used to encapsulate all state and operations related to the slideshow.
+It is exposed as a `ReadOnlySlideshowApp` object.
+
+The following sequence diagrams shows how the slideshow command works:
+
+![SlideshowSequenceDiagram](images/SlideshowSequenceDiagram.png)
+
+![UpdateSlideshowAppReferenceSequenceDiagram](images/UpdateSlideshowAppReferenceSequenceDIagram.png)
+
+The reference sequence diagram above shows the various state changes within `SlideshowApp`.
+When a certain property is changed, the UI updates itself accordingly.
+The relevant `UiPart` listens to changes in these properties using the `ChangeListener` class provided by `java.beans`.
+
+For instance, when `isActive:BooleanProperty` becomes true, the UI will go into slideshow mode.
+Below is a code snippet on how this is implemented in `FlashcardListPanel.java`.
+
+![SlideshowUpdateUiCodeSnippet](images/SlideshowUpdateUiCodeSnippet.png)
 
 --------------------------------------------------------------------------------------------------------------------
 
