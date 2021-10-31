@@ -256,7 +256,7 @@ Examples:
 * `filter r/2 4` returns all the flashcards in [list mode](#list-mode) indexed from 2 to 4.
 * `filter i/1 3 6 l/Tamil` returns all the flashcards in [list mode](#list-mode) indexed at 1, 3 and 6 with the `Tamil`
   language.
-* `filter l/Chinese r/1 4` returns all the flashcards in [list mode](#list-mode) indexed from 1 to 4 with the 
+* `filter l/Chinese r/1 4` returns all the flashcards in [list mode](#list-mode) indexed from 1 to 4 with the
   `Chinese` language.
 
 ### Locating flashcards by keyword(s): `find`
