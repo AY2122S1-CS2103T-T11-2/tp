@@ -261,14 +261,15 @@ Examples:
 
 ### Locating flashcards by keyword(s): `find`
 
-Finds flashcards based on the keyword(s) specified.
+Finds flashcards from the **entire** flashcard list based on the keyword(s) specified.
 
 Format: `find [e/ENGLISH_KEYWORDS] [f/FOREIGN_KEYWORDS]`
 
-* The search is **not case-sensitive**, e.g `HELLO` will match `Hello`.
-* The **order** of the keywords **does not matter**, e.g. `Good morning` will match `Morning good`.
-* Only **full words** will be matched for **English keywords**, e.g. `Hello` will not match `Helloooo`.
-* **Non-full words** match will be accepted for **foreign keywords**, e.g. `早` with match `早安`.
+* The search for english keywords is **not case-sensitive**, e.g "HELLO" will match "Hello".
+* The search for foreign keywords is **case sensitive** because some language depends on capitalization rules, e.g. in German, "Morgen" translates to "morning" but "morgen" translates to "tomorrow".
+* The **order** of the keywords **does not matter**, e.g. "Good morning" will match "Morning good".
+* Only **full words** will be matched for **English keywords**, e.g. "Fire" will **not** match "Firetruck".
+* **Non-full words** match will be accepted for **foreign keywords**, e.g. "早" with match "早安".
 * Flashcard(s) **matching at least one keyword** will be displayed.
 * **At least one** of the optional fields must be provided.
 
@@ -316,14 +317,14 @@ Examples:
 * `import dictionary.csv` will load all cards stored in the dictionary.csv to LingoGO!.
 
 
-### Listing all flashcards : `list [NUMBER_OF_FLASHCARDS]`
+### Listing flashcards : `list [NUMBER_OF_FLASHCARDS]`
 
 Shows a list of flashcards in LingoGO!.
 
 Format: `list [NUMBER_OF_FLASHCARDS]`
 
-* Lists all flashcards in LingoGO! if `[NUMBER_OF_FLASHCARDS]` is not provided
-* Randomly select `[NUMBER_OF_FLASHCARDS]` flashcards to be shown in the [list mode](#list-mode)
+* Lists flashcards in LingoGO!
+* If `[NUMBER_OF_FLASHCARDS]` is provided, randomly select `[NUMBER_OF_FLASHCARDS]` flashcards to be shown in the [list mode](#list-mode)
 * The `[NUMBER_OF_FLASHCARDS]` **must be a positive integer** 1, 2, 3, …
 
 Examples:

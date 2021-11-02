@@ -305,7 +305,7 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 #### Implementation
 
-The find feature is facilitated by `ModelManager`. It extends `Model` implements `updateFilteredFlashcardList` which returns an unmodifiable view of filtered flashcards in the GUI.
+The find feature is facilitated by `ModelManager`. It extends `Model` implements `updateFilteredFlashcardList` which returns an unmodifiable view of flashcards matching the specified keywords in the GUI.
 
 The find feature relies on the `FindCommandParser` and `PhraseContainsKeywordsPredicate`. Multiple keywords can be given for both english and foreign phrases. `FindCommandParser` uses `PhraseContainsKeywordsPredicate` to select flashcards that matches the keywords.
 
@@ -330,9 +330,9 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 #### Implementation
 
-The list feature is facilitated by `ModelManager`. It extends `Model` and implements `updateFilteredFlashcardList`which returns an unmodifiable view of the flashcards in the GUI.
+The list feature is facilitated by `ModelManager`. It extends `Model` and implements `updateFilteredFlashcardList` which returns an unmodifiable view of the flashcards in the GUI.
 
-In order to generate a list of random flashcards, a random stream of `Index` is used to get the flashcards from the main list of flashcards.
+The list feature relies on the `ListCommandParser` and `FlashcardInGivenFlashcardListPredicate`. In order to generate a list of random flashcards, a random stream of `Index` is used to get the flashcards from the main list of flashcards.
 
 The sequence diagram below illustrates the execution of `ListCommand`.
 
@@ -344,7 +344,7 @@ The sequence diagram below illustrates the execution of `ListCommand`.
 
 * **Alternative 1 (current choice):** Randomise the list of flashcards
     * Pros: Users are able to use flashcards more effectively.
-    * Cons: Harder to implement and more difficult to test (due to random stream of `Index`).
+    * Cons: Harder to implement and needs a random stream of `Index`.
 
 * **Alternative 2:** Output list up to `n`
     * Pros: Easy to implement.
