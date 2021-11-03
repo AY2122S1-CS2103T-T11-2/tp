@@ -27,7 +27,7 @@ Detailed information about these features can be found under the [Modes](#modes)
 
 <hr/>
 
-<h2>Table of Contents</h2>
+<h2 id="table-of-contents">Table of Contents</h2>
 
 * Table of Contents
 {:toc}
@@ -38,7 +38,7 @@ Detailed information about these features can be found under the [Modes](#modes)
 This user guide aims to help users familiarise themselves with the commands of LingoGO! and use the application effectively.
 
 ## How to use the user guide
-* A [Table of Contents](#) with clickable links can be found above to help with navigating across the user guide quickly.
+* A [Table of Contents](#table-of-contents) with clickable links can be found above to help with navigating across the user guide quickly.
 * New users can refer to the [Quick Start](#quick-start) guide for a quick set-up tutorial.
 * New users can also refer to [Modes](#modes) to start understanding how to use LingoGO!.
 * A detailed outline of the commands can be found under [Commands](#commands).
