@@ -239,13 +239,14 @@ Examples:
 
 ### Filtering flashcards by condition(s): `filter`
 
-Filters flashcards based on specified condition(s), such that only flashcards matching **any of the given conditions** remain in the displayed flashcard list of [list mode](#list-mode)
+Filters flashcards based on specified condition(s), such that only flashcards matching **any of the given conditions** remain in the displayed flashcard list of [list mode](#list-mode).
 
 Format: `filter [l/LANGUAGE] [i/INDEX_LIST] [r/INDEX_RANGE]`
 
 
 * The `filter` search will apply **only on flashcards in the displayed flashcard list of [list mode](#list-mode)**. 
-  Flashcards not in the displayed flashcard list will not subsequently show up even if a `filter` command with matching conditions is executed.
+  Flashcards not in the displayed flashcard list will not subsequently show up even if a `filter` command with matching conditions is executed. 
+  (Refer to the last `filter` example).
 * `LANGUAGE` is not **case-sensitive** (e.g. "Chinese" matches "CHINESE").
 * `INDEX_LIST` is a list of space separated indices, that refer to the indices shown in the displayed flashcard list of [list mode](#list-mode).
 * `INDEX_RANGE` is a pair of space separated indices, that refer to the indices shown in the displayed flashcard list of [list mode](#list-mode).
@@ -263,6 +264,10 @@ Examples:
 * `filter l/Chinese r/1 4` returns all the flashcards in the displayed flashcard list of [list mode](#list-mode) indexed from 1 to 4, **or** of `Chinese` language.
 * `filter l/French r/1 10 i/15 19 20` returns all flashcards in the displayed flashcard list of [list mode](#list-mode) indexed from 1 to 10 **or** 
   indexed at 15, 19 and 20  **or** of the `French` language.
+*  When the displayed flashcard list of [list mode](#list-mode) shows `e/Good Morning f/早安 l/Chinese` and 
+   `e/hand f/손 l/Korean`, executing `filter l/Korean` will return a displayed flashcard list with only the `e/hand f/손 l/Korean` 
+   flashcard left. If we then execute `filter l/Chinese`, an empty displayed flashcard list will be returned. 
+
 ### Locating flashcards by keyword(s): `find`
 
 Finds flashcards from the **entire** flashcard list based on the keyword(s) specified.
@@ -375,8 +380,8 @@ LingoGO!'s data is saved in the hard disk automatically after any command that c
 LingoGO!'s data is saved as a JSON file at `{JAR file location}/data/lingogo.json`. Advanced users are welcome to update data directly by editing that data file.
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
-1. If your changes to the data file makes its format invalid, LingoGO! will discard all data and start with an empty data file on the next run.
-2. Some changes to the JSON file, such as the adding of extraneous JSON fields, may be ignored and overwritten upon the next LingoGo! command.
+<br> 1. If your changes to the data file makes its format invalid, LingoGO! will discard all data and start with an empty data file on the next run.
+<br> 2. Some changes to the JSON file, such as the adding of extraneous JSON fields, may be ignored and overwritten upon the next LingoGo! command.
 </div>
 
 
