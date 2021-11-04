@@ -484,12 +484,12 @@ University students
    Use case ends.
 
 **Extensions**
-* 1a. The given user input is invalid (e.g. `list abc` or `list -1`)
+* 1a. The given user input is invalid (e.g. `list abc` or `list -1`).
     * 1a1. LingoGO! shows an error message.
 
       Use case resumes at step 1.
 
-* 1b. The given user input is larger than the total flashcards
+* 1b. The given user input is larger than the total flashcards.
     * 1b1. LingoGO! shows an error message.
 
       Use case resumes at step 1.
@@ -512,8 +512,13 @@ University students
 
       Use case resumes at step 1.
 
-* 2b. Information provided by the user in incomplete.
+* 2b. Information provided by the user is incomplete.
     * 2b1. LingoGO! shows an error message.
+
+      Use case resumes at step 1.
+
+* 2c. Language input provided by the user is invalid.
+    * 2c1. LingoGO! shows an error message.
 
       Use case resumes at step 1.
 
