@@ -27,7 +27,7 @@ Detailed information about these features can be found under the [Modes](#modes)
 
 <hr/>
 
-<h2>Table of Contents</h2>
+<h2 id="table-of-contents">Table of Contents</h2>
 
 * Table of Contents
 {:toc}
@@ -38,7 +38,7 @@ Detailed information about these features can be found under the [Modes](#modes)
 This user guide aims to help users familiarise themselves with the commands of LingoGO! and use the application effectively.
 
 ## How to use the user guide
-* A [Table of Contents](#) with clickable links can be found above to help with navigating across the user guide quickly.
+* A [Table of Contents](#table-of-contents) with clickable links can be found above to help with navigating across the user guide quickly.
 * New users can refer to the [Quick Start](#quick-start) guide for a quick set-up tutorial.
 * New users can also refer to [Modes](#modes) to start understanding how to use LingoGO!.
 * A detailed outline of the commands can be found under [Commands](#commands).
@@ -68,9 +68,9 @@ This user guide aims to help users familiarise themselves with the commands of L
      * Some example commands you can try (refer to the [Commands](#commands) section below for a full list of commands and their details):
        * `list` : Lists all flashcards.
        * `add l/Chinese e/Good Morning f/早安` : Adds a flashcard with the `Chinese` language, English phrase `Good Morning`, and corresponding foreign phrase `早安`.
-       * `delete 3` : Deletes the 3rd flashcard shown in the current displayed list.
+       * `delete 3` : Deletes the 3rd flashcard shown in the displayed flashcard list of [list mode](#list-mode).
        * `find e/Good Morning` : Finds flashcard(s) with the matching English phrase `Good Morning`.
-       * `filter l/Chinese` : Shows only the flashcard(s) with the `Chinese` language in the current displayed list.
+       * `filter l/Chinese` : Shows only the flashcard(s) with the `Chinese` language in the displayed flashcard list of [list mode](#list-mode).
    1. <u>Command result</u>
      * Shows a message after you execute a command.
    1. <u>Displayed flashcard list</u>
@@ -194,8 +194,8 @@ Format: `delete INDEX`
 * `INDEX` **must be a positive integer** 1, 2, 3, …
 
 Examples:
-* `list` followed by `delete 2` deletes the 2nd flashcard in LingoGO!.
-* `find Hello` followed by `delete 1` deletes the 1st flashcard from the results of the `find` command.
+* `list` followed by `delete 2` deletes the 2nd flashcard in the displayed flashcard list of [list mode](#list-mode).
+* `find Hello` followed by `delete 1` deletes the 1st flashcard in the displayed flashcard list of [list mode](#list-mode), following the results of the `find` command.
 
 
 ### Editing a flashcard : `edit`
@@ -210,10 +210,10 @@ Format: `edit INDEX [l/LANGUAGE] [e/ENGLISH_PHRASE] [f/FOREIGN_PHRASE]`
 * **At least one** of the optional fields must be provided.
 
 Examples:
-* `edit 1 l/German` Edits the language of the 1st flashcard to be `German`.
-* `edit 1 e/Good Morning` Edits the English phrase of the 1st flashcard to be `Good Morning`.
-* `edit 2 f/Guten Morgen` Edits the foreign phrase of the 2nd flashcard to be `Guten Morgen`.
-* `edit 2 l/German e/Good Morning f/Guten Morgen` Edits the language, English phrase, and foreign phrase of the 2nd flashcard to be `German`, `Good Morning`, and `Guten Morgen` respectively.
+* `edit 1 l/German` Edits the language of the 1st flashcard in the displayed flashcard list of [list mode](#list-mode) to be `German`.
+* `edit 1 e/Good Morning` Edits the English phrase of the 1st flashcard in the displayed flashcard list of [list mode](#list-mode) to be `Good Morning`.
+* `edit 2 f/Guten Morgen` Edits the foreign phrase of the 2nd flashcard in the displayed flashcard list of [list mode](#list-mode) to be `Guten Morgen`.
+* `edit 2 l/German e/Good Morning f/Guten Morgen` Edits the language, English phrase, and foreign phrase of the 2nd flashcard in the displayed flashcard list of [list mode](#list-mode) to be `German`, `Good Morning`, and `Guten Morgen` respectively.
 
 
 ### Exiting LingoGO! : `exit`
@@ -242,25 +242,34 @@ Examples:
 
 ### Filtering flashcards by condition(s): `filter`
 
-Filters flashcards based on the specified condition(s).
+Filters flashcards based on specified condition(s), such that only flashcards matching **any of the given conditions** remain in the displayed flashcard list of [list mode](#list-mode).
 
 Format: `filter [l/LANGUAGE] [i/INDEX_LIST] [r/INDEX_RANGE]`
 
+
+* The `filter` search will apply **only on flashcards in the displayed flashcard list of [list mode](#list-mode)**. 
+  Flashcards not in the displayed flashcard list will not subsequently show up even if a `filter` command with matching conditions is executed. 
+  (Refer to the last `filter` example).
 * `LANGUAGE` is not **case-sensitive** (e.g. "Chinese" matches "CHINESE").
-* `INDEX_LIST` is a list of space separated indices, that refer to the indices shown in the current displayed list.
-* `INDEX_RANGE` is a pair of space separated indices, that refer to the indices shown in the current displayed list.
-  The given range is inclusive, that is `1 3` would refer to the flashcards at indices 1, 2 and 3. Also the first given
+* `INDEX_LIST` is a list of space separated indices, that refer to the indices shown in the displayed flashcard list of [list mode](#list-mode).
+* `INDEX_RANGE` is a pair of space separated indices, that refer to the indices shown in the displayed flashcard list of [list mode](#list-mode).
+  The given range is inclusive, that is `1 3` would refer to the flashcards at indices 1, 2 and 3. Additionally, the first given
   index must be smaller or equal to the second given index. e.g. `1 2`, `3 14` are accepted but not `1 2 3` nor `3 1`.
 * The indices **must be positive integers** 1, 2, 3, …
+* **At least one** of the optional fields must be provided.
+
 
 Examples:
-* `filter l/Chinese` returns all flashcards with the `Chinese` language like `e/Good Morning f/早安`.
-* `filter i/1 2 3` returns the flashcards in [list mode](#list-mode) indexed at 1, 2 and 3.
-* `filter r/2 4` returns all the flashcards in [list mode](#list-mode) indexed from 2 to 4.
-* `filter i/1 3 6 l/Tamil` returns all the flashcards in [list mode](#list-mode) indexed at 1, 3 and 6 with the `Tamil`
-  language.
-* `filter l/Chinese r/1 4` returns all the flashcards in [list mode](#list-mode) indexed from 1 to 4 with the
-  `Chinese` language.
+* `filter l/Chinese` returns all flashcards in the displayed flashcard list of [list mode](#list-mode) with the `Chinese` language like `e/Good Morning f/早安 l/Chinese`.
+* `filter i/1 2 3` returns the flashcards in the displayed flashcard list of [list mode](#list-mode) indexed at 1, 2 and 3.
+* `filter r/2 4` returns all the flashcards in the displayed flashcard list of [list mode](#list-mode) indexed from 2 to 4.
+* `filter i/1 3 6 l/Tamil` returns all the flashcards in the displayed flashcard list of [list mode](#list-mode) indexed at 1, 3 and 6, **or** of `Tamil` language.
+* `filter l/Chinese r/1 4` returns all the flashcards in the displayed flashcard list of [list mode](#list-mode) indexed from 1 to 4, **or** of `Chinese` language.
+* `filter l/French r/1 10 i/15 19 20` returns all flashcards in the displayed flashcard list of [list mode](#list-mode) indexed from 1 to 10 **or** 
+  indexed at 15, 19 and 20  **or** of the `French` language.
+*  When the displayed flashcard list of [list mode](#list-mode) shows `e/Good Morning f/早安 l/Chinese` and 
+   `e/hand f/손 l/Korean`, executing `filter l/Korean` will return a displayed flashcard list with only the `e/hand f/손 l/Korean` 
+   flashcard left. If we then execute `filter l/Chinese`, an empty displayed flashcard list will be returned. 
 
 ### Locating flashcards by keyword(s): `find`
 
@@ -374,7 +383,8 @@ LingoGO!'s data is saved in the hard disk automatically after any command that c
 LingoGO!'s data is saved as a JSON file at `{JAR file location}/data/lingogo.json`. Advanced users are welcome to update data directly by editing that data file.
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
-If your changes to the data file makes its format invalid, LingoGO! will discard all data and start with an empty data file on the next run.
+<br> 1. If your changes to the data file makes its format invalid, LingoGO! will discard all data and start with an empty data file on the next run.
+<br> 2. Some changes to the JSON file, such as the adding of extraneous JSON fields, may be ignored and overwritten upon the next LingoGo! command.
 </div>
 
 

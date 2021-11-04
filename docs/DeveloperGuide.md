@@ -589,6 +589,21 @@ University students
     * 1a1. LingoGO! shows an error message.
 
       Use case resumes at step 1.
+    
+### Filter flashcards
+
+**MSS**
+1. User requests to filter flashcards in the displayed flashcards list by providing filter conditions.
+2. LingoGo! shows all flashcards in the previous displayed flashcards list that matches any of the given predicates in 
+   a new list.
+   
+   Use case ends.
+
+**Extensions**
+* 1a. The given user input is invalid.
+    * 1a1. LingoGO! shows an error message.
+
+      Use case resumes at step 1.
 
 ### Import flashcards
 
@@ -681,7 +696,8 @@ testers are expected to do more *exploratory* testing.
    1. Download the jar file and copy into an empty folder.
 
    2. Double-click the jar file <br>
-       Expected: Shows the GUI with a set of sample flashcards. The window size may not be optimum.
+       Expected snapshot: 
+        ![initial start up](images/developerGuideExpectedSnapshots/initialStartUp.png)
 
 1. Saving window preferences
 
@@ -706,6 +722,81 @@ testers are expected to do more *exploratory* testing.
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
 
+### Loading in a JSON data file
+
+1. Loading valid JSON data file
+    
+    1. Prerequisites: Sample `flashcardapp.json` file is filled with following data and is inside a `data` directory in 
+       the same directory as the jar file:
+       ```
+        {
+            "flashcards" : [ {
+            "languageType" : "Chinese",
+            "englishPhrase" : "Hello",
+            "foreignPhrase" : "你好"
+            }, {
+            "languageType" : "Chinese",
+            "englishPhrase" : "Good Morning",
+            "foreignPhrase" : "早安"
+            }, {
+            "languageType" : "Chinese",
+            "englishPhrase" : "Good Afternoon",
+            "foreignPhrase" : "午安"
+            }, {
+            "languageType" : "Chinese",
+            "englishPhrase" : "Good Night",
+            "foreignPhrase" : "晚安"
+             } ]
+        }  
+        ```
+    1. Open the jar file <br>
+       Expected snapshot:
+       ![sampleDataList](images/developerGuideExpectedSnapshots/sampleDataListMode.png)
+1. Opening jar file with non-existing JSON data file or `data` folder:
+    
+    1. Open the jar file <br>
+       Expected snapshot:
+       ![initial start up](images/developerGuideExpectedSnapshots/initialStartUp.png)
+       
+1. Opening jar file with incorrectly named JSON data file in `data` folder:
+    1. Open the jar file <br>
+       Expected snapshot:
+       ![initial start up](images/developerGuideExpectedSnapshots/initialStartUp.png)
+
+1. Opening jar file with invalid JSON file:
+    1. Test case: empty `flashcardapp.json`<br>
+        
+    2. Test case: `flashcardapp.json` with data: <br>
+       ```null```
+    
+    3. Test case: `flashcardapp.json` with data: 
+       ```
+       {
+           "flashcards" : [ null ]
+       }
+       ```
+    4. Test case: `flashcardapp.json` with data:
+        ```
+        {
+            "flashcards" : [ {
+                "languageType" : "Chinese",
+                "englishPhrase" : "good morning"
+                "foreignPhrase" : "早上好"
+            } ]
+        }
+        ```
+    5. Test case: `flashcardapp.json` with data:
+        ```
+        {
+            "flashcards" : [ {
+                "languageType" : "Chinese",
+                "englishPhrase" : null,
+                "foreignPhrase" : "早上好"
+            } ]
+        }
+        ```
+   Expected snapshot for above test cases 1 to 5:
+   ![invalidJSONDataFile](images/developerGuideExpectedSnapshots/invalidJSONDataFile.png)
 _{ more test cases to be added in future …​ }_
 
 <!---
