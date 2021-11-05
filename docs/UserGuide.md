@@ -317,7 +317,7 @@ Format: `import CSV_FILE_PATH`
   and fill the `CSV_FILE_PATH` parameter with the CSV file's name.
 </div>
 
-* The headers in the CSV file are case-insensitive.
+* The headers in the CSV file are case-sensitive.
 * The CSV file must have **3 columns** in this order from left to right:
   1. Language
   2. Foreign phrase
