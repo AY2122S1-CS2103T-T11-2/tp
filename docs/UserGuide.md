@@ -64,13 +64,13 @@ This user guide aims to help users familiarise themselves with the commands of L
    1. <u>Menu</u>
      * A clickable menu bar.
    1. <u>Command box</u>
-     * Type a command into the command box and press Enter to execute it.
-     * Some example commands you can try (refer to the [Commands](#commands) section below for a full list of commands and their details):
-       * `list` : Lists all flashcards.
-       * `add l/Chinese e/Good Morning f/早安` : Adds a flashcard with the `Chinese` language, English phrase `Good Morning`, and corresponding foreign phrase `早安`.
-       * `delete 3` : Deletes the 3rd flashcard shown in the displayed flashcard list of [list mode](#list-mode).
-       * `find e/Good Morning` : Finds flashcard(s) with the matching English phrase `Good Morning`.
-       * `filter l/Chinese` : Shows only the flashcard(s) with the `Chinese` language in the displayed flashcard list of [list mode](#list-mode).
+      * Type a command into the command box and press Enter to execute it.
+      * Some example commands you can try (refer to the [Commands](#commands) section below for a full list of commands and their details):
+        * `list` : Lists all flashcards.
+        * `add l/Chinese e/Good Morning f/早安` : Adds a flashcard with the `Chinese` language, English phrase `Good Morning`, and corresponding foreign phrase `早安`.
+        * `delete 3` : Deletes the 3rd flashcard shown in the displayed flashcard list of [list mode](#list-mode).
+        * `find e/Good Morning` : Finds flashcard(s) with the matching English phrase `Good Morning`.
+        * `filter l/Chinese` : Shows only the flashcard(s) with the `Chinese` language in the displayed flashcard list of [list mode](#list-mode).
    1. <u>Command result</u>
      * Shows a message after you execute a command.
    1. <u>Displayed flashcard list</u>
