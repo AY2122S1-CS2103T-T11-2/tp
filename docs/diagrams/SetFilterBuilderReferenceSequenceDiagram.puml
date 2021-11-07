@@ -6,7 +6,7 @@
 participant ":FilterCommandParser" as FilterCommandParser LOGIC_COLOR
 participant "filterBuilder:FilterBuilder" as FilterBuilder LOGIC_COLOR
 
-mainframe set filters
+mainframe **sd**  set filters
 
 opt if language filter is present
 
@@ -28,6 +28,15 @@ activate FilterBuilder
 FilterBuilder --> FilterCommandParser
 deactivate FilterBuilder
 
+end
+
+opt if range filter is present
+
+FilterCommandParser -> FilterBuilder: setIndexRangePair(indexRangePair)
+activate FilterBuilder
+
+FilterBuilder --> FilterCommandParser
+deactivate FilterBuilder
 
 end
 

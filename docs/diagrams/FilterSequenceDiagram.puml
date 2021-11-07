@@ -7,7 +7,7 @@ participant ":FlashcardAppParser" as FlashcardAppParser LOGIC_COLOR
 participant ":FilterCommandParser" as FilterCommandParser LOGIC_COLOR
 participant "filterBuilder:FilterBuilder" as FilterBuilder LOGIC_COLOR
 participant "filterCommand:FilterCommand" as FilterCommand LOGIC_COLOR
-participant ":CommandResult" as CommandResult LOGIC_COLOR
+participant "result:CommandResult" as CommandResult LOGIC_COLOR
 end box
 
 box Model MODEL_COLOR_T1
@@ -49,12 +49,6 @@ deactivate FilterCommand
 FilterCommandParser --> FlashcardAppParser: filterCommand
 deactivate FilterCommandParser
 
-
-FilterCommandParser -[hidden]-> FlashcardAppParser: filterCommand
-destroy FilterCommandParser
-
-
-
 FlashcardAppParser --> LogicManager : filterCommand
 deactivate FlashcardAppParser
 
@@ -84,11 +78,6 @@ deactivate CommandResult
 FilterCommand --> LogicManager : result
 deactivate FilterCommand
 
-FilterCommand -[hidden]-> LogicManager : result
-destroy FilterCommand
-
-destroy FilterBuilder
-
-[<--LogicManager
+[<--LogicManager : result
 deactivate LogicManager
 @enduml

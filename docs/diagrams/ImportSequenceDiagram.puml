@@ -5,8 +5,8 @@ box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":FlashcardAppParser" as FlashcardAppParser LOGIC_COLOR
 participant ":ImportCommandParser" as ImportCommandParser LOGIC_COLOR
-participant ":ImportCommand" as ImportCommand LOGIC_COLOR
-participant ":CommandResult" as CommandResult LOGIC_COLOR
+participant "importCommand:ImportCommand" as ImportCommand LOGIC_COLOR
+participant "result:CommandResult" as CommandResult LOGIC_COLOR
 end box
 
 box Model MODEL_COLOR_T1
@@ -33,16 +33,13 @@ create ImportCommand
 ImportCommandParser -> ImportCommand
 activate ImportCommand
 
-ImportCommand --> ImportCommandParser
+ImportCommand --> ImportCommandParser:importCommand
 deactivate ImportCommand
 
-ImportCommandParser --> FlashcardAppParser
+ImportCommandParser --> FlashcardAppParser:importCommand
 deactivate ImportCommandParser
 
-ImportCommandParser -[hidden]-> FlashcardAppParser
-destroy ImportCommandParser
-
-FlashcardAppParser --> LogicManager
+FlashcardAppParser --> LogicManager:importCommand
 deactivate FlashcardAppParser
 
 LogicManager -> ImportCommand : execute()
@@ -58,15 +55,13 @@ create CommandResult
 ImportCommand -> CommandResult
 activate CommandResult
 
-CommandResult --> ImportCommand
+CommandResult --> ImportCommand:result
 deactivate CommandResult
 
 ImportCommand --> LogicManager : result
 deactivate ImportCommand
 
-ImportCommand -[hidden]-> LogicManager : result
-destroy ImportCommand
 
-[<--LogicManager
+[<--LogicManager:result
 deactivate LogicManager
 @enduml

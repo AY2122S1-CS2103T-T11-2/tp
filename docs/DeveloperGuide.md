@@ -43,18 +43,18 @@ contribute to LingoGO!, or adapt LingoGO!'s code into a project of their own.
 
 ## How to use the developer guide
 <!-- CHANGE LINKS -->
-* A [*Table of Contents*](#) with clickable links can be found above to help with navigating across the user guide quickly.
-* To set up your development environment, refer to the guide on [*Setting up and getting started*](#setting-up-getting-started).
-* For a high level overview of the design of the application, refer to the [*Overall Design*](#overall-design) section.
-* For a lower level, more in depth look at some of the features implemented in LingoGO!, refer to the [*Feature Implementation*](#feature-implementation) section.
-* To better understand the documentation practices of the project, refer to the [*Documentation guide*](https://ay2122s1-cs2103t-t11-2.github.io/tp/Documentation.html).
-* To better understand the testing methods used in the project, refer to the [*Testing guide*](https://ay2122s1-cs2103t-t11-2.github.io/tp/Testing.html).
-* To better understand the tools available to you as a developer, refer to the [*Logging guide*](https://ay2122s1-cs2103t-t11-2.github.io/tp/Logging.html),
-  [*Configuration guide*](https://ay2122s1-cs2103t-t11-2.github.io/tp/Configuration.html), and [*DevOps Guide*](https://ay2122s1-cs2103t-t11-2.github.io/tp/DevOps.html).
-* For a list of requirements that LingoGO! has to meet/is planning to meet, refer to [*Appendix B: User Stories*](#appendix-b-user-stories),
-  [*Appendix C: Use Cases*](#appendix-c-use-cases), and [*Appendix D: Non-Functional Requirements*](#appendix-d-non-functional-requirements).
+* A [Table of Contents](#) with clickable links can be found above to help with navigating across the user guide quickly.
+* To set up your development environment, refer to the guide on [Setting up and getting started](#setting-up-getting-started).
+* For a high level overview of the design of the application, refer to the [Overall Design](#overall-design) section.
+* For a lower level, more in depth look at some of the features implemented in LingoGO!, refer to the [Feature Implementation](#feature-implementation) section.
+* To better understand the documentation practices of the project, refer to the [Documentation guide](https://ay2122s1-cs2103t-t11-2.github.io/tp/Documentation.html).
+* To better understand the testing methods used in the project, refer to the [Testing guide](https://ay2122s1-cs2103t-t11-2.github.io/tp/Testing.html).
+* To better understand the tools available to you as a developer, refer to the [Logging guide](https://ay2122s1-cs2103t-t11-2.github.io/tp/Logging.html),
+  [Configuration guide](https://ay2122s1-cs2103t-t11-2.github.io/tp/Configuration.html), and [DevOps Guide](https://ay2122s1-cs2103t-t11-2.github.io/tp/DevOps.html).
+* For a list of requirements that LingoGO! has to meet/is planning to meet, refer to [Appendix B: User Stories](#appendix-b-user-stories),
+  [Appendix C: Use Cases](#appendix-c-use-cases), and [Appendix D: Non-Functional Requirements](#appendix-d-non-functional-requirements).
 * A [Glossary](#appendix-e-glossary) is provided to help explain certain important terms used in this guide.
-* For instructions on manual testing, refer to the [*Manual testing*](#appendix-f-instructions-for-manual-testing) section.
+* For instructions on manual testing, refer to the [Manual testing](#appendix-f-instructions-for-manual-testing) section.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -128,7 +128,7 @@ The rest of the app consists of **four components**.
 
 * [**`UI`**](#ui-component): The UI of the App.
 * [**`Logic`**](#logic-component): The command executor.
-* [**`Model`**](#model-component): Holds the data of the App in memory.
+* [**`Model`**](#model-component): Holds the data of the app in memory.
 * [**`Storage`**](#storage-component): Reads data from, and writes data to, the hard disk.
 
 
@@ -199,9 +199,6 @@ The *Sequence Diagram* below illustrates the interactions within the `Logic` com
 
 ![Interactions Inside the Logic Component for the `delete 1` Command](images/DeleteSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `DeleteCommandParser` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</div>
-
 Here are the other classes in `Logic` (omitted from the *Class Diagram* above) that are used for parsing a user command:
 
 <img src="images/ParserClasses.png" width="600"/>
@@ -240,7 +237,7 @@ A *Class Diagram* of the `Storage` component can be found below:
 <img src="images/StorageClassDiagram.png" width="550" />
 
 The `Storage` component:
-* Can save both address book data and user preference data in JSON format, and read them back into corresponding objects.
+* Can save both LingoGO! data and user preference data in JSON format, and read them back into corresponding objects.
 * Inherits from both `FlashcardAppStorage` and `UserPrefStorage`, which means it can be treated as either one (if the functionality of only one is needed).
 * Depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`).
 
@@ -259,7 +256,7 @@ This section describes some noteworthy details on how certain features are imple
 #### Description
 The filter feature allows users to quickly select a group of flashcards to be shown in the displayed flashcards list
 of the GUI. This effectively enables users to "prepare" a batch of flashcards for a test session. The command
-accepts various conditions from the user to filter the flashcards with. (e.g. what type of
+accepts various conditions from the user to filter the flashcards with (e.g. what type of
 language, which card indexes).
 
 #### Implementation
@@ -282,10 +279,6 @@ The following sequence diagrams shows how the `filter` command works:
 
 ![FilterSequenceDiagram](images/filterCommand/FilterSequenceDiagram.png)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `FilterCommand`,
-`FilterCommandParser` and `FilterBuilder`should end at the destroy marker (X) but due to a limitation of PlantUML,
-the lifeline reaches the end of diagram.
-</div>
 
 ![SetFilterReferenceSequenceDiagram](images/filterCommand/SetFilterReferenceSequenceDiagram.png)
 
@@ -303,7 +296,7 @@ the lifeline reaches the end of diagram.
   * Pros: Easier to implement.
   * Cons: Less convenient for users.
 
-**Aspect: Mutability of `FilterBuilder`**
+**Aspect: Mutability of `FilterBuilder`:**
 
 * **Alternative 1 (current choice):** Make it mutable.
     * Pros: No need for complex constructors and easier for more types of filters to be added in the future.
@@ -349,7 +342,8 @@ The following sequence diagram shows how the `import` command works:
 
 The find feature is facilitated by `ModelManager`. It extends `Model` implements `updateFilteredFlashcardList` which returns an unmodifiable view of flashcards matching the specified keywords in the GUI.
 
-The find feature relies on the `FindCommandParser` and `PhraseContainsKeywordsPredicate`. Multiple keywords can be given for both english and foreign phrases. `FindCommandParser` uses `PhraseContainsKeywordsPredicate` to select flashcards that matches the keywords.
+The find feature relies on the `FindCommandParser` and `PhraseContainsKeywordsPredicate`. Multiple keywords can be 
+given for both English and foreign phrases. `FindCommandParser` uses `PhraseContainsKeywordsPredicate` to select flashcards that matches the keywords.
 
 The following sequence diagram shows how the `find` command works:
 
@@ -359,11 +353,11 @@ The following sequence diagram shows how the `find` command works:
 
 **Aspect: How to search in foreign language:**
 
-* **Alternative 1 (current choice):** Allow non-full match
+* **Alternative 1 (current choice):** Allow non-full match.
   * Pros: Will not miss out any related flashcards that is related to the keyword provided.
   * Cons: May output a lot more flashcards than the user's desired outcome.
 
-* **Alternative 2:** Only allow full match
+* **Alternative 2:** Only allow full match.
   * Pros: Only exact match will be output, user will only see flashcards that are exactly the keyword.
   * Cons: Too restrictive, will not output phrases that contains more than the keyword.
 
@@ -491,12 +485,12 @@ University students
 
 | Priority | Category | As a/an... | I want to... | So that I...
 | -------- | -------- | ---------- | ------------ | ----------------
-|***| Level of experience | new user | be guided through the set-up process of a flashcard | can use LingoGo! Properly
-|***| General user | user | be able to add new flash cards |
+|***| General user | user | be able to add new flashcards |
 |***| General user | user | be able to delete my flashcards |
 |***| General user | user | be able to list my flashcards |
 |***| General user | user | be able to test myself and view my performance using flashcards |
 |***| General user | user | be able to update my flashcards |
+|***| Level of experience | new user | be guided through the set-up process of a flashcard | can use LingoGo! Properly
 |***| User behaviors | lazy user | automatically generate cards by typing in the vocabulary | don't have to spend time manually creating cards
 |**| Level of experience | experienced user | be able to delete multiple flashcards that are no longer relevant to me (multi-delete function) |
 |**| Level of experience | new user | have a basic set of flashcards available from the get go | can reduce the setup time or reduce the need for setup
