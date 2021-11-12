@@ -112,11 +112,15 @@ Upon completing the [Quick start](#quick-start) guide, your LingoGO! should look
 
 Now, it is time for a quick tutorial to run through the features of LingoGO!. Follow a long for a tour of how to use the app!
 
+<div style="page-break-after: always;"></div>
+
 ### Creating your flashcards
 Let's start off our tutorial by creating some new flashcards!
 
 1. First, let's add a new French phrase "Bonjour", which translates to "hello" in English. Simply type in `add e/hello f/Bonjour l/French` into the command box, as can be seen below:
    ![enterAddCommand](images/enterAddCommandTutorial.png)
+
+    <div style="page-break-after: always;"></div>
 
 2. Now press the Enter key and voila! A new flashcard has been created and added to the bottom of the list, as can be seen below:
    ![addTutorial](images/addTutorial.png)
@@ -133,7 +137,7 @@ Let's start off our tutorial by creating some new flashcards!
     * You can always use the [`delete`](#deleting-a-flashcard-delete) or [`edit`](#editing-a-flashcard-edit) commands to make corrections to your flashcards.
     
     </div>
-   
+
 ### Searching and selecting your flashcards
 
 Before we can start practicing with the flashcards we have created, we must first select them using [`list`](#listing-flashcards-list), [`filter`](#filtering-flashcards-by-conditions-filter),
@@ -144,11 +148,15 @@ allowing you to find the flashcards you need quickly.
 2. Upon pressing Enter, you will get a filtered list of flashcards. Notice how only your French language flashcards are displayed:
    ![filteredFlashcardsTutorial.png](images/filteredFlashcardsTutorial.png)
 
+    <div style="page-break-after: always;"></div>
+
 ### Practicing with your flashcards
 Once we have selected all the French flashcards, we can finally start our practice session using LingoGO!'s [Slideshow mode](#slideshow-mode).
 
 1. To begin you practice session, simply type [`slideshow`](#entering-slideshow-mode-slideshow) into the command box and press Enter. You will now enter LingoGO!'s [Slideshow mode](#slideshow-mode) where you will see a maximized view of a flashcard with only its foreign phrase.
    ![slideshowTutorial.png](images/slideshowTutorial.png)
+
+    <div style="page-break-after: always;"></div>
 
 2. To give an answer for "Bonjour", enter `answer e/Hello` into the command box. You will then see the message below:
    ![answerTutorial.png](images/answerTutorial.png)
@@ -162,13 +170,15 @@ Once we have selected all the French flashcards, we can finally start our practi
     </div>
 
 3. To go to the next flashcard, enter `next` into the command box. Can you also provide the answer for this next flashcard shown? If you got the answer right, then well done! At this point, you may also enter `previous` into the command box to go back to the previous flashcard.
-   
+<div style="page-break-after: always;"></div>
+
 ### Sharing your flashcards
 Now that you are done practicing with all your French flashcards, it is time to share them with your friends to let them try it out!
 
 1. Before you do this, you first need to enter [`stop`](#exiting-slideshow-mode-stop) into the command box to exit [Slideshow mode](#slideshow-mode) and go back to [List mode](#list-mode).
 2. Now to export your flashcards, simply enter `export myCards.csv` into the command box. You will then see the message as shown below:
    ![exportTutorial.png](images/exportTutorial.png)
+    <div style="page-break-after: always;"></div>
 
 3. Your flashcards have been exported into a [CSV](#csv) file named *myCards.csv* located in the *data folder* of your app's *[home folder](#home-folder)*.
    You may then send these files to your friends via email or other means. They can then import this file into their own LingoGO! app via the 
@@ -244,7 +254,6 @@ Once you are done practicing, you may exit Slideshow mode using the [`stop`](#ex
 </div>
 
 <hr/>
-<div style="page-break-after: always;"></div>
 
 ## Command format
 This section aims to provide you with a quick breakdown of LingoGO!'s command format.
@@ -256,7 +265,9 @@ This section aims to provide you with a quick breakdown of LingoGO!'s command fo
   * Command words are case-sensitive (e.g. `clEar` will not be accepted for the `clear` command).
   * Along with command words, commands may come with extra details that need to be filled up (e.g. `clear` is an example of a command used with just the command word alone while`add l/LANGUAGE e/ENGLISH_PHRASE f/FOREIGN_PHRASE` is an example of a command that comes with details 
       that need to be provided by you).
-    
+
+<div style="page-break-after: always;"></div>
+
 ### Prefixes
 
   * Certain prefixes have been reserved for use by LingoGO!'s commands. Prefixes are used by LingoGO! to identify your inputs (e.g. LingoGO! will interpret `l/Tamil` as a language called `Tamil`).
@@ -283,7 +294,6 @@ This section aims to provide you with a quick breakdown of LingoGO!'s command fo
 <div style="page-break-after: always;"></div>
 
 <hr/>
-<div style="page-break-after: always;"></div>
 
 ## Flashcard format
 When you add or edit a flashcard, you have to give one or more of the following three parameters: `LANGUAGE`, `ENGLISH_PHRASE`, `FOREIGN_PHRASE`.
@@ -367,6 +377,8 @@ Deletes all flashcards from LingoGO!.
 Format: `clear`
 
 
+<div style="page-break-after: always;"></div>
+
 ### Deleting a flashcard: `delete`
 
 Deletes the specified flashcard from LingoGO!.
@@ -380,7 +392,6 @@ Format: `delete INDEX`
 Examples:
 * `list` followed by `delete 2` lists all flashcard in the app in the displayed flashcard list of [List mode](#list-mode) and deletes the 2nd flashcard.
 * `find e/Hello` followed by `delete 1` lists flashcards matching with `ENGLISH_PHRASE` "hello" in the displayed flashcard list of [List mode](#list-mode) and then deletes the 1st flashcard in the displayed flashcard list of [List mode](#list-mode).
-<div style="page-break-after: always;"></div>
 
 ### Editing a flashcard: `edit`
 
@@ -399,6 +410,13 @@ Examples:
 * `edit 1 e/Good Morning` edits the English phrase of the 1st flashcard in the displayed flashcard list of [List mode](#list-mode) to be `Good Morning`.
 * `edit 2 f/Guten Morgen` edits the foreign phrase of the 2nd flashcard in the displayed flashcard list of [List mode](#list-mode) to be `Guten Morgen`.
 * `edit 2 l/German e/Good Morning f/Guten Morgen` edits the language, English phrase, and foreign phrase of the 2nd flashcard in the displayed flashcard list of [List mode](#list-mode) to be `German`, `Good Morning`, and `Guten Morgen` respectively.
+
+
+### Entering Slideshow mode: `slideshow`
+
+Switches to [Slideshow mode](#slideshow-mode) for you to test yourself using the flashcards shown in [List mode](#list-mode).
+
+Format: `slideshow`
 
 
 ### Exporting flashcards: `export`
@@ -472,7 +490,6 @@ Format: `find [e/ENGLISH_KEYWORDS] [f/FOREIGN_KEYWORDS]`
 * Flashcard(s) **matching at least one keyword** will be displayed.
 * **At least one** of the optional fields must be provided.
 
-<div style="page-break-after: always;"></div>
 Examples:
 
 ![find example list](images/FindExample.png)
@@ -533,14 +550,8 @@ Examples:
 * `list 3` returns 3 randomly selected flashcards in LingoGO!.
 
 
-### Entering Slideshow mode: `slideshow`
-
-Switches to [Slideshow mode](#slideshow-mode) for you to test yourself using the flashcards shown in [List mode](#list-mode).
-
-Format: `slideshow`
-
-
 <hr/>
+<div style="page-break-after: always;"></div>
 
 ## Slideshow mode commands
 
@@ -585,7 +596,6 @@ Format: `stop`
 
 
 --------------------------------------------------------------------------------------------------------------------
-<div style="page-break-after: always;"></div>
 
 ## Data
 This section addresses how LingoGO! handles data.
