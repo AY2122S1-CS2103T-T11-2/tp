@@ -21,7 +21,7 @@ LingoGO! supports **all languages that can be represented on your computer**. Li
 * **Create and manage** over **thousands** of flashcards.
 * **Find your flashcards easily** with our find and filter features. 
 * **Back up and share** your flashcards with others using our import and export features.
-* **Practise** with your flashcards in a dedicated questionnaire mode.
+* **Practice** with your flashcards in a dedicated questionnaire mode.
 
 Detailed information about these features can be found under the [Modes](#modes), [General commands](#general-commands), [List mode commands](#list-mode-commands) and [Slideshow mode commands](#slideshow-mode-commands) sections in this user guide.
 
@@ -31,6 +31,8 @@ Detailed information about these features can be found under the [Modes](#modes)
 
 * Table of Contents
 {:toc}
+
+--------------------------------------------------------------------------------------------------------------------
 
 <div style="page-break-after: always;"></div>
 
@@ -153,7 +155,7 @@ allowing you to find the flashcards you need quickly.
 ### Practicing with your flashcards
 Once we have selected all the French flashcards, we can finally start our practice session using LingoGO!'s [Slideshow mode](#slideshow-mode).
 
-1. To begin you practice session, simply type [`slideshow`](#entering-slideshow-mode-slideshow) into the command box and press Enter. You will now enter LingoGO!'s [Slideshow mode](#slideshow-mode) where you will see a maximized view of a flashcard with only its foreign phrase.
+1. To begin your practice session, simply type [`slideshow`](#entering-slideshow-mode-slideshow) into the command box and press Enter. You will now enter LingoGO!'s [Slideshow mode](#slideshow-mode) where you will see a maximized view of a flashcard with only its foreign phrase.
    ![slideshowTutorial.png](images/slideshowTutorial.png)
 
     <div style="page-break-after: always;"></div>
@@ -163,7 +165,7 @@ Once we have selected all the French flashcards, we can finally start our practi
 
     <div markdown="block" class="alert alert-info">
 
-   **:information_source: Just a little hint**<br>
+   **:information_source: Just a little hint:**<br>
 
     * Answers are **not** case-sensitive, which is why "Hello" matches "hello".
 
@@ -259,7 +261,7 @@ Once you are done practicing, you may exit Slideshow mode using the [`stop`](#ex
 This section aims to provide you with a quick breakdown of LingoGO!'s command format.
 
 
-### Command Words
+### Command words
 
   * Each command always starts with a command word such as `add` or `find`.
   * Command words are case-sensitive (e.g. `clEar` will not be accepted for the `clear` command).
